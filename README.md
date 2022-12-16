@@ -20,8 +20,10 @@ port 80은 쓰고잇대서 800으로 (임의로)해봄
 process 도는지 확인, container ID확인  
 ```docker ps (-a)```
 <br/>
+<br/>
 container 중지  
 ```docker stop <container-id>```
+<br/>
 <br/>
 container 제거  
 ```docker rm <container-id>```
