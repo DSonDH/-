@@ -23,3 +23,8 @@ container 중지
 <br/>
 container 제거  
 ```docker rm <container-id>```
+  
+  
+ docker build
+ ``` docker build -t getting-started .```  
+docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.
