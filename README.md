@@ -11,7 +11,8 @@ port 80은 쓰고잇대서 800으로 (임의로)해봄
 * -p 80:80 호스트의 포트 80을 컨테이너의 포트 800에 매핑.
 * docker/getting-started 사용할 이미지를 지정.
 <br/>
-<br/>
+
+  
 process 도는지 확인, container ID확인  
 ```docker ps (-a)```
 <br/>
