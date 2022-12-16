@@ -13,14 +13,6 @@ port 80은 쓰고잇대서 800으로 (임의로)해봄
 
 <br/>
 <br/>
-
-~
-~
-~
-.
-.
-.
-
 process 도는지 확인, container ID확인  
 ```docker ps (-a)```
 <br/>
