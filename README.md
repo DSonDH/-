@@ -23,7 +23,7 @@ process 도는지 확인, container ID확인
 docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.
   
   
- docker run
+ docker run  
  ```docker run -dp 800:800 getting-started```  
  -d 매개 변수는 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냅니다.  
  -p 값은 호스트 포트 3000과 컨테이너 포트 3000 간에 매핑을 만듭니다.  
