@@ -2,11 +2,10 @@
 Docker를 써봅시다 삐약삐약
 
 [Guide](https://learn.microsoft.com/ko-kr/visualstudio/docker/tutorials/docker-tutorial)
-
-port 80은 쓰고잇대서 800으로 (임의로)해봄
-
-
+  
+  
 첫 container? process ? 지정  
+port 80은 쓰고잇대서 800으로 (임의로)해봄  
 ```docker run -d -p 800:800 docker/getting-started```  
 * -d 백그라운드에서 분리 모드로 컨테이너를 실행합니다.
 * -p 80:80 호스트의 포트 80을 컨테이너의 포트 80에 매핑합니다.
