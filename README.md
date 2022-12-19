@@ -2,7 +2,8 @@
 Docker를 써봅시다 삐약삐약
   
  기본 흐름 : ./Dockerfile -> Docker image -> Docker container
-  
+ container로 imgae 생성 가능  
+
   
 [Guide](https://learn.microsoft.com/ko-kr/visualstudio/docker/tutorials/docker-tutorial)
 
