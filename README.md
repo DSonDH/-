@@ -23,6 +23,9 @@ port 80은 쓰고잇대서 800으로 (임의로)해봄
 <br/>
   
    
+docker image : container를 만드는데 사용되는 read-only 템플릿  
+컨테이서 실행에 필요한 파일과 설정값 등을 포함하고 있는 Dockerfile을 만든 후 Dockerfile을 빌드하여 이미지를 만듬.  
+  
 docker image 생성  
 ``` docker image build -t example/echo:latest```  
 -t 옵션은 이미지명을 지정할 때 사용
