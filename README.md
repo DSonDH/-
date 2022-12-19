@@ -1,6 +1,9 @@
-# -
+# Docker memo
 Docker를 써봅시다 삐약삐약
-
+  
+ 기본 흐름 : ./Dockerfile -> Docker image -> Docker container
+  
+  
 [Guide](https://learn.microsoft.com/ko-kr/visualstudio/docker/tutorials/docker-tutorial)
 
 [guide2-1](https://tech.cloudmt.co.kr/2022/06/29/%EB%8F%84%EC%BB%A4%EC%99%80-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%9D%98-%EC%9D%B4%ED%95%B4-1-3-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9A%A9%EB%B2%95/)    
@@ -18,7 +21,11 @@ port 80은 쓰고잇대서 800으로 (임의로)해봄
 * -p 80:80 호스트의 포트 80을 컨테이너의 포트 800에 매핑.
 * docker/getting-started 사용할 이미지를 지정.
 <br/>
-
+  
+   
+docker image 생성  
+``` docker image build -t example/echo:latest```  
+-t 옵션은 이미지명을 지정할 때 사용
   
 process 도는지 확인, container ID확인  
 ```docker ps (-a)``` 
