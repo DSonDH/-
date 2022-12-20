@@ -52,6 +52,10 @@ docker image : container를 만드는데 사용되는 read-only 템플릿
 docker image 생성  
 ``` docker image build -t example/echo:latest```  
 -t 옵션은 이미지명을 지정할 때 사용
+   
+docker image <none> 제거  
+```docker rm $(docker ps --filter status=exited -q)```  
+  
   
 process 도는지 확인, container ID확인  
 ```docker ps (-a)``` 
@@ -75,4 +79,8 @@ container 중지
 <br/>
 <br/>
 container 제거  
-```docker rm <container-id>```
+```docker rm <container-id>```  
+  
+멈춘 container 제거  
+```docker rm $(docker ps --filter status=exited -q)```  
+  
