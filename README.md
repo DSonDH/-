@@ -2,17 +2,19 @@
 Docker를 써봅시다 삐약삐약
   
  기본 흐름 : ./Dockerfile -> Docker image -> Docker container  
- 근데 container로 image 생성도 가능  
- 전체 흐름
+ (데 container로 image 생성도 가능)
+   
+   
+ 전체 흐름  
  1. source code 작성
  2. ./Dockerfile 작성
  3. docker build -t ~~~  # 이미지 생성 완료
  4. docker push ~~~  # 서버에 전송
  5. docker pull ~~~  # 서버에서 다운
  6. docker run -d -it -p ~~~  # 명령어 자유롭게, 컨테이너 생성되서 돌아감
- 
-
-
+  
+  
+  
 [docker docs](https://docs.docker.com/engine/reference/builder/)  
 [docker docs python example](https://docs.docker.com/language/python/build-images/)
     
