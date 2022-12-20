@@ -16,7 +16,11 @@ Docker를 써봅시다 삐약삐약
  https://trytoso.tistory.com/1587
    
    
+   
+   
 Do not confuse RUN with CMD. RUN actually runs a command and commits the result; CMD does not execute anything at build time, but specifies the intended command for the image.
+   
+   
    
    
 첫 container? process ? 지정  
