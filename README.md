@@ -9,11 +9,12 @@ Docker를 써봅시다 삐약삐약
  1. source code 작성
  2. ./Dockerfile 작성
  3. docker build -t ~~~  # 이미지 생성 완료
- ```docker build --tag scinet-tmp .``` # 이미지 이름은 scinet-tmp, 끝에 .은 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시  
+ ```docker build --tag scinet-tmp .```  
+ # 이미지 이름은 scinet-tmp, 끝에 .은 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시  
  5. docker push ~~~  # 서버에 전송
  6. docker pull ~~~  # 서버에서 다운
- 7. docker run -d -it -p ~~~  # 명령어 자유롭게, 컨테이너 생성되서 돌아감
-  
+ 7. docker run -d -it -p ~~~  # 명령어 자유롭게, 컨테이너 생성되서 돌아감  
+ ```docker run scinet-tmp```  
   
   
 [docker docs](https://docs.docker.com/engine/reference/builder/)  
