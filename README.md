@@ -53,7 +53,7 @@ docker image 생성
 ``` docker image build -t example/echo:latest```  
 -t 옵션은 이미지명을 지정할 때 사용
    
-docker image <none> 제거  
+docker image none 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
   
   
@@ -81,6 +81,6 @@ container 중지
 container 제거  
 ```docker rm <container-id>```  
   
-멈춘 container 제거  
+멈춘 container 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
   
