@@ -1,8 +1,9 @@
 # Docker memo
 Docker를 써봅시다 삐약삐약
   
+-------------------------------------------------------------  
  기본 흐름 : ./Dockerfile -> Docker image -> Docker container  
- (데 container로 image 생성도 가능)
+-------------------------------------------------------------  
    
    
  전체 흐름  
@@ -19,9 +20,8 @@ Docker를 써봅시다 삐약삐약
 [docker docs](https://docs.docker.com/engine/reference/builder/)  
 [docker docs python example](https://docs.docker.com/language/python/build-images/)
     
-    
 [Guide](https://learn.microsoft.com/ko-kr/visualstudio/docker/tutorials/docker-tutorial)
-
+  
 [guide2-1](https://tech.cloudmt.co.kr/2022/06/29/%EB%8F%84%EC%BB%A4%EC%99%80-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%9D%98-%EC%9D%B4%ED%95%B4-1-3-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9A%A9%EB%B2%95/)    
 [guide2-2](https://tech.cloudmt.co.kr/2022/06/29/%EB%8F%84%EC%BB%A4%EC%99%80-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%9D%98-%EC%9D%B4%ED%95%B4-2-3-%EB%B3%BC%EB%A5%A8%EA%B3%BC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/)  
 [guide2-3](https://tech.cloudmt.co.kr/2022/06/29/%EB%8F%84%EC%BB%A4%EC%99%80-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%9D%98-%EC%9D%B4%ED%95%B4-3-3-docker-image-dockerfile-docker-compose/)  
@@ -55,10 +55,10 @@ process 도는지 확인, container ID확인
  ``` docker build -t getting-started .```  
 docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.
   
-  
+--------------------------------------------------------------------------  
  docker container life-cycle   
- 생성(create) -> 시작(start) -> 실행(run) -> 중지(stopped) -> 삭제(deleted)
-    
+ 생성(create) -> 시작(start) -> 실행(run) -> 중지(stopped) -> 삭제(deleted)  
+--------------------------------------------------------------------------  
     
  docker run  
  ```docker run -dp 800:800 getting-started```  
@@ -99,7 +99,8 @@ container 제거
 * STOPSIGNAL : 종료 시그널 설정  
 * HEALTHCHECK : 컨테이너 상태 체크  
 * SHELL : 기본 쉘 설정
-
+  
+  
 도커 호스트에서 컨테이너로 파일 전송  
 ```docker cp /~경로~/text123.txt 225051b687b3:/home```  
   
