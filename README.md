@@ -69,7 +69,10 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
   
   
 container 중지  
-```docker stop <container-id>```
+```docker stop <container-id>``` # 그동안 하던 작업들 완료하고 컨테이너 중지  
+```docker kill <container-id>``` # 작업 기다리지 않고 강제 중지
+  
+
 <br/>
 <br/>
 container 제거  
@@ -77,6 +80,7 @@ container 제거
   
 멈춘 container 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
+  
   
 # Dockerfile 만들기  
 * FROM : 운영체제 이미지, 베이스 이미지 지정  
