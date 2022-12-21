@@ -30,10 +30,9 @@ Docker를 써봅시다 삐약삐약
  https://trytoso.tistory.com/1587
    
    
-   
-   
 Do not confuse RUN with CMD. RUN actually runs a command and commits the result; CMD does not execute anything at build time, but specifies the intended command for the image.
    
+<br/>
 <br/>
      
 docker image : container를 만드는데 사용되는 read-only 템플릿  
@@ -72,16 +71,15 @@ container 중지
 ```docker stop <container-id>``` # 그동안 하던 작업들 완료하고 컨테이너 중지  
 ```docker kill <container-id>``` # 작업 기다리지 않고 강제 중지
   
-
-<br/>
-<br/>
 container 제거  
 ```docker rm <container-id>```  
   
 멈춘 container 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
   
-  
+<br/>
+<br/>
+<br/>
 # Dockerfile 만들기  
 * FROM : 운영체제 이미지, 베이스 이미지 지정  
 * RUN : 실행할 명령어  
