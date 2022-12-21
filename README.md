@@ -84,3 +84,22 @@ container 제거
 멈춘 container 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
   
+# Dockerfile 만들기  
+* FROM : 운영체제 이미지, 베이스 이미지 지정  
+* RUN : 실행할 명령어  
+* COPY  : 파일 복사  
+* ENV : 환경 변수 설정  
+* ADD : 파일/디렉토리 추가  
+* USER : 사용자 지정  
+* WORKDIR : 작업 디렉토리  
+* ARG : Dockerfile안 변수  
+* LABEL : 라벨 설정  
+* EXPOSE : 컨테이너 공개포트 지정, 컨테이너가 대기하는 포트 알려줌  
+* ENTRYPOINT : 컨테이너 실행 명령 (CMD와 무슨차이?)  
+* VOLUME : 볼륨 마운트   
+* ONBUILD : 빌드 완료 후 실행되는 명령 
+   (다른 이미지 생성 시 이 Dockerfile로 생성한 이미지를 참고하면 그제서야 ONBUILD
+   명령어 실행되는 것)
+* STOPSIGNAL : 종료 시그널 설정  
+* HEALTHCHECK : 컨테이너 상태 체크  
+* SHELL : 기본 쉘 설정
