@@ -34,24 +34,14 @@ Docker를 써봅시다 삐약삐약
    
 Do not confuse RUN with CMD. RUN actually runs a command and commits the result; CMD does not execute anything at build time, but specifies the intended command for the image.
    
-   
-   
-   
-첫 container? process ? 지정  
-port 80은 쓰고잇대서 800으로 (임의로)해봄  
-```docker run -d -p 800:800 docker/getting-started```  
-* -d 백그라운드에서 분리 모드로 컨테이너를 실행.
-* -p 80:80 호스트의 포트 80을 컨테이너의 포트 800에 매핑.
-* docker/getting-started 사용할 이미지를 지정.
 <br/>
-  
-   
+     
 docker image : container를 만드는데 사용되는 read-only 템플릿  
 컨테이서 실행에 필요한 파일과 설정값 등을 포함하고 있는 Dockerfile을 만든 후 Dockerfile을 빌드하여 이미지를 만듬.  
   
 docker image 생성  
 ``` docker image build -t example/echo:latest```  
--t 옵션은 이미지명을 지정할 때 사용
+-t 옵션은 이미지명 지정에 사용
    
 docker image none 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
@@ -67,6 +57,10 @@ process 도는지 확인, container ID확인
 docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.
   
   
+ docker container life-cycle   
+ 생성(create) -> 시작(start) -> 실행(run) -> 중지(stopped) -> 삭제(deleted)
+    
+    
  docker run  
  ```docker run -dp 800:800 getting-started```  
  -d 매개 변수는 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냅니다.  
@@ -103,3 +97,8 @@ container 제거
 * STOPSIGNAL : 종료 시그널 설정  
 * HEALTHCHECK : 컨테이너 상태 체크  
 * SHELL : 기본 쉘 설정
+
+도커 호스트에서 컨테이너로 파일 전송  
+```docker cp /~경로~/text123.txt 225051b687b3:/home```  
+  
+  
