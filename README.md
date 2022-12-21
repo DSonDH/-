@@ -97,7 +97,7 @@ container 제거
 * EXPOSE : 컨테이너 공개포트 지정, 컨테이너가 대기하는 포트 알려줌  
 * ENTRYPOINT : 컨테이너 실행 명령 (CMD와 무슨차이?)  
 * VOLUME : 볼륨 마운트   
-* ONBUILD : 빌드 완료 후 실행되는 명령 
+* ONBUILD : 빌드 완료 후 실행되는 명령  
    (다른 이미지 생성 시 이 Dockerfile로 생성한 이미지를 참고하면 그제서야 ONBUILD
    명령어 실행되는 것)
 * STOPSIGNAL : 종료 시그널 설정  
