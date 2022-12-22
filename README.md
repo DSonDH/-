@@ -1,5 +1,6 @@
 # Docker memo
-Docker를 써봅시다 삐약삐약
+Docker어린이의 공부 노트!  
+🐣🐤삐약삐약
   
 -------------------------------------------------------------  
  기본 흐름 : ./Dockerfile -> Docker image -> Docker container  
@@ -62,11 +63,12 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
     
  docker run  
  ```docker run -dp 800:800 getting-started```  
- -d 매개 변수는 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냅니다.  
- -p 값은 호스트 포트 3000과 컨테이너 포트 3000 간에 매핑을 만듭니다.  
- 포트 매핑이 없으면 애플리케이션에 액세스할 수 없습니다.
-  
-  
+ -d 매개 변수는 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냄  
+ -p 값은 호스트 포트 3000과 컨테이너 포트 3000 간에 매핑을 만듬  
+ 포트 매핑이 없으면 애플리케이션에 액세스할 수 없음  
+ -i: 사용자가 입출력 할 수 있는 상태  
+ -t: 가상 터미널 환경을 에뮬레이션 함  
+ -w: Working directory inside the container
 container 중지  
 ```docker stop <container-id>``` # 그동안 하던 작업들 완료하고 컨테이너 중지  
 ```docker kill <container-id>``` # 작업 기다리지 않고 강제 중지
