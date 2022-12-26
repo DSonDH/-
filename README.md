@@ -101,6 +101,9 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
  ```docker run -v `pwd`:/etc python:3.8-alpine cat /etc/test.txt```  
    
  -w : Working directory inside the container  
+ 작업 디렉터리를 /etc로 변경  
+ ```docker run -w /etc python:3.8-alpine pwd```   
+   
  --shm-size=8G (컨테이너 내부 통신 시 공유메모리 조절. default 4mb 밖에 안된다네?)  
    
  
@@ -127,10 +130,32 @@ docker container 에 접속
 
 ## docker container command line based (실험 중)  
 docker pull continuumio/miniconda3  
-docker run -it -v ~/mmdetection_nc continuumio/miniconda3  
- 
+```
+(
+docker run \
+-it \
+--name ripdet \
+-w /home/sdh/mmdetection_nc/ \
+-v $PWD:/home/sdh/mmdetection_nc/ \
+continuumio/miniconda3
+)
+conda activate /home/sdh/mmdetection_nc/venv
+apt-get update
+apt-get -y install libgl1-mesa-glx
+pip install python-dateutil
+python ./NIA_workdir_50p/test_NIA_newcon.py 
+exit
+```  
+
   
 도커 호스트에서 컨테이너로 파일 전송  
 ```docker cp /~경로~/text123.txt 225051b687b3:/home```  
-  
+ 
+ 
+도커 컨테이너에서 생성한 파일/폴더를 도커 밖에서 변경하려고 할 때 permission denied error  
+[guide](https://sweethoneybee.tistory.com/28)  
+컨테이너에서 생성한 파일owner가 root라서 root 권한으로 파일 제어가 가능하다 : sudo로 하면 처리됨.  
+sudo권한 안쓰고 해결하는 방법 : ???  
+(참고로 docker에서 생성된 파일은 host에서 root으로 잡히는데, dockerfile에서 user를 새로 만드는 방법이나 docker container 내부에서 chown 자신uid 파일명을 통해 변경할 수 있다고 함)  
+
   
