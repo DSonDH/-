@@ -1,5 +1,5 @@
 # Docker memo
-Docker어린이의 공부 노트!  
+Docker어린이의 도커 공부 노트  
 🐣🐤삐약삐약
   
 -------------------------------------------------------------  
@@ -128,9 +128,10 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
 
 <br/>
 
-## docker container command line based (실험 중)  
-docker pull continuumio/miniconda3  
+## docker container command line based (뉴컨 요청 도커 컨테이너 생성)  
+
 ```
+docker pull continuumio/miniconda3 
 (
 docker run \
 -it \
@@ -145,10 +146,11 @@ apt-get update
 apt-get -y install libgl1-mesa-glx
 pip install python-dateutil
 
+
 python ./NIA_workdir_50p/test_NIA_newcon.py 
 exit
 ```  
-
+  
   
 * 도커 호스트에서 컨테이너로 파일 전송  
 ```docker cp /~경로~/text123.txt 225051b687b3:/home```  
@@ -156,8 +158,9 @@ exit
  
 * 도커 컨테이너에서 생성한 파일/폴더를 도커 밖에서 변경하려고 할 때 permission denied error  
 [guide](https://sweethoneybee.tistory.com/28)  
-컨테이너에서 생성한 파일owner가 root라서 root 권한으로 파일 제어가 가능하다 : sudo로 하면 처리됨.  
+컨테이너에서 생성한 파일owner가 root라서 root 권한으로 파일 제어가 가능하다 : host에서 sudo로 명령하면 되긴 함.  
+(docker에서 생성된 파일은 host에서 root으로 잡히는데, dockerfile에서 user를 새로 만드는 방법이나 docker container 내부에서 chown 자신uid 파일명을 통해 변경할 수 있다고 함)  
 sudo권한 안쓰고 해결하는 방법 : ???  
-(참고로 docker에서 생성된 파일은 host에서 root으로 잡히는데, dockerfile에서 user를 새로 만드는 방법이나 docker container 내부에서 chown 자신uid 파일명을 통해 변경할 수 있다고 함)  
+
 
   
