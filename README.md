@@ -62,15 +62,18 @@ Docker어린이의 공부 노트!
 docker image : container를 만드는데 사용되는 read-only 템플릿  
 컨테이서 실행에 필요한 파일과 설정값 등을 포함하고 있는 Dockerfile을 만든 후 Dockerfile을 빌드하여 이미지를 만듬.  
   
-docker image 생성  
+* docker image 생성  
 ``` docker image build -t example/echo:latest```  
 -t 옵션은 이미지명 지정에 사용
    
-docker image none 일괄 제거  
+* docker image none 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
   
+<br/>
+<br/>
+
 # Docker Container 만들기  
- docker build  
+ * docker build  
  ```docker build --help```  
  ``` docker build -t getting-started .```  
 docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.
@@ -81,10 +84,10 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
  생성(create) -> 시작(start) -> 실행(run) -> 중지(stopped) -> 삭제(deleted)  
 --------------------------------------------------------------------------  
   
-process 도는지 확인, container ID확인  
+* process 도는지 확인, container ID확인  
 ```docker ps (-a)``` 
      
-docker run  
+* docker run  
  ```docker run -dp 800:800 getting-started```  
  --name : container 별명 지어주기. container id일일이 안찾아도 되서 편함.  
  -d : 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냄  
@@ -107,24 +110,23 @@ docker run
  --shm-size=8G (컨테이너 내부 통신 시 공유메모리 조절. default 4mb 밖에 안된다네?)  
    
  
-container 중지  
+* container 중지  
 ```exit``` 치거나 Ctrl+C 누르기  
 ```docker stop <container-id>``` # 그동안 하던 작업들 완료하고 컨테이너 중지  
 ```docker kill <container-id>``` # 작업 기다리지 않고 강제 중지
   
-container 제거  
+* container 제거  
 ```docker rm <container-id>```  
   
-멈춘 container 일괄 제거  
+* 멈춘 container 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
   
-멈춘 container 다시 실행  
+* 멈춘 container 다시 실행  
 ``` docker restart <container-id>```  
 
-docker container 에 접속  
+* docker container 에 접속  
 ```docker attach <container-id>```  
 
-<br/>
 <br/>
 
 ## docker container command line based (실험 중)  
