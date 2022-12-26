@@ -93,7 +93,6 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
 -d : 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냄  
 -e : docker container 환경변수 설정, Dockerfile의 ENV설정 덮어씀  
 ``` docker run -e FOO=bar python:3.8-alpine env```  
-
 -i : 사용자가 입출력 할 수 있는 상태  
 -t : 가상 터미널 환경을 에뮬레이션 함  
 (-it : 컨테이너를 종료하지 않은체로, 터미널의 입력을 계속해서 컨테이너로 전달하기 위해서 사용)  
