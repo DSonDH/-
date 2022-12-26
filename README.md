@@ -88,20 +88,20 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
 ```docker ps (-a)``` 
      
 * docker run  
- ```docker run -dp 800:800 getting-started```  
- --name : container 별명 지어주기. container id일일이 안찾아도 되서 편함.  
- -d : 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냄  
- -e : docker container 환경변수 설정, Dockerfile의 ENV설정 덮어씀  
- ``` docker run -e FOO=bar python:3.8-alpine env```  
- 
- -i : 사용자가 입출력 할 수 있는 상태  
- -t : 가상 터미널 환경을 에뮬레이션 함  
- (-it : 컨테이너를 종료하지 않은체로, 터미널의 입력을 계속해서 컨테이너로 전달하기 위해서 사용)  
- -p : 호스트 포트 3000과 컨테이너 포트 3000 간에 매핑을 만듬  
- 포트 매핑이 없으면 애플리케이션에 액세스할 수 없음  
- -v : host, container간 volumne설정. host시스템 특정 경로를 container 시스템 특정 경로로 mount해줌  
- host 컴퓨터의 현재 디렉터리를 container의 /etc경로로 mount한 뒤 뒤에 명령어 수행  
- ```docker run -v `pwd`:/etc python:3.8-alpine cat /etc/test.txt```  
+```docker run -dp 800:800 getting-started```  
+--name : container 별명 지어주기. container id일일이 안찾아도 되서 편함.  
+-d : 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냄  
+-e : docker container 환경변수 설정, Dockerfile의 ENV설정 덮어씀  
+``` docker run -e FOO=bar python:3.8-alpine env```  
+
+-i : 사용자가 입출력 할 수 있는 상태  
+-t : 가상 터미널 환경을 에뮬레이션 함  
+(-it : 컨테이너를 종료하지 않은체로, 터미널의 입력을 계속해서 컨테이너로 전달하기 위해서 사용)  
+-p : 호스트 포트 3000과 컨테이너 포트 3000 간에 매핑을 만듬  
+포트 매핑이 없으면 애플리케이션에 액세스할 수 없음  
+-v : host, container간 volumne설정. host시스템 특정 경로를 container 시스템 특정 경로로 mount해줌  
+host 컴퓨터의 현재 디렉터리를 container의 /etc경로로 mount한 뒤 뒤에 명령어 수행  
+```docker run -v `pwd`:/etc python:3.8-alpine cat /etc/test.txt```  
    
  -w : Working directory inside the container  
  작업 디렉터리를 /etc로 변경  
