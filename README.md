@@ -57,6 +57,7 @@ Docker어린이의 공부 노트!
    
 <br/>
 <br/>
+
 # Docker Image 만들기  
 docker image : container를 만드는데 사용되는 read-only 템플릿  
 컨테이서 실행에 필요한 파일과 설정값 등을 포함하고 있는 Dockerfile을 만든 후 Dockerfile을 빌드하여 이미지를 만듬.  
@@ -67,10 +68,6 @@ docker image 생성
    
 docker image none 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
-  
-  
-process 도는지 확인, container ID확인  
-```docker ps (-a)``` 
   
 # Docker Container 만들기  
  docker build  
@@ -83,8 +80,11 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
  docker container life-cycle   
  생성(create) -> 시작(start) -> 실행(run) -> 중지(stopped) -> 삭제(deleted)  
 --------------------------------------------------------------------------  
-    
- docker run  
+  
+process 도는지 확인, container ID확인  
+```docker ps (-a)``` 
+     
+docker run  
  ```docker run -dp 800:800 getting-started```  
  --name : container 별명 지어주기. container id일일이 안찾아도 되서 편함.  
  -d : 백그라운드에서 분리된 모드로 컨테이너를 실행 중임을 나타냄  
@@ -123,8 +123,7 @@ container 제거
 
 docker container 에 접속  
 ```docker attach <container-id>```  
-  
-  
+
 <br/>
 <br/>
 
@@ -139,20 +138,22 @@ docker run \
 -v $PWD:/home/sdh/mmdetection_nc/ \
 continuumio/miniconda3
 )
+
 conda activate /home/sdh/mmdetection_nc/venv
 apt-get update
 apt-get -y install libgl1-mesa-glx
 pip install python-dateutil
+
 python ./NIA_workdir_50p/test_NIA_newcon.py 
 exit
 ```  
 
   
-도커 호스트에서 컨테이너로 파일 전송  
+* 도커 호스트에서 컨테이너로 파일 전송  
 ```docker cp /~경로~/text123.txt 225051b687b3:/home```  
  
  
-도커 컨테이너에서 생성한 파일/폴더를 도커 밖에서 변경하려고 할 때 permission denied error  
+* 도커 컨테이너에서 생성한 파일/폴더를 도커 밖에서 변경하려고 할 때 permission denied error  
 [guide](https://sweethoneybee.tistory.com/28)  
 컨테이너에서 생성한 파일owner가 root라서 root 권한으로 파일 제어가 가능하다 : sudo로 하면 처리됨.  
 sudo권한 안쓰고 해결하는 방법 : ???  
