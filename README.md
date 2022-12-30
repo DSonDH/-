@@ -14,7 +14,7 @@ Docker어린이의 도커 공부 노트
  ```docker build --tag scinet-tmp .```  # 이미지 이름은 scinet-tmp, 끝에 .은 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시  
  5. docker push ~~~  # 서버에 전송
  6. docker pull ~~~  # 서버에서 다운
- 7. docker run -d -it -p ~~~  # 명령어 자유롭게, 컨테이너 생성되서 돌아감  
+ 7. docker run -d -it -p ~~~  # 컨테이너 생성되서 돌아감  
  ```docker run scinet-tmp```  
   
   
@@ -62,6 +62,14 @@ Docker어린이의 도커 공부 노트
 docker image : container를 만드는데 사용되는 read-only 템플릿  
 컨테이서 실행에 필요한 파일과 설정값 등을 포함하고 있는 Dockerfile을 만든 후 Dockerfile을 빌드하여 이미지를 만듬.  
   
+  
+   * docker build  
+ ```docker build --help```  
+ ``` docker build -t ripdet .```  
+ ``` docker build -t ripdet:0.1 .```  
+docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.
+  
+  
 * docker image 생성  
 ``` docker image build -t example/echo:latest```  
 -t 옵션은 이미지명 지정에 사용
@@ -73,11 +81,6 @@ docker image : container를 만드는데 사용되는 read-only 템플릿
 <br/>
 
 # Docker Container 만들기  
- * docker build  
- ```docker build --help```  
- ``` docker build -t getting-started .```  
-docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.
-  
   
 --------------------------------------------------------------------------  
  docker container life-cycle   
