@@ -37,9 +37,12 @@ Docker어린이의 도커 공부 노트
 # Dockerfile 만들기  
 * FROM : 운영체제 이미지, 베이스 이미지 지정  
 * RUN : 실행할 명령어  
-* COPY  : 파일 복사  
+* COPY  : host 환경의 파일 또는 디렉토리를 대상 컨테이너 이미지 안으로 복사  
+* ADD : 이미지에 파일/디렉토리 추가  
+ADD는 local file또는 디렉토리 대신 URL사용 가능  
+```ADD rootfs.tar.xz /``` 처럼 소스에서 대상으로 직접 tar 파일을 자동 압축해제하여 복사할 수 있다.  
+
 * ENV : 환경 변수 설정  
-* ADD : 파일/디렉토리 추가  
 * USER : 사용자 지정  
 * WORKDIR : 작업 디렉토리  
 * ARG : Dockerfile안 변수  
@@ -60,7 +63,20 @@ Docker어린이의 도커 공부 노트
 디스크 공간과 디렉토리를 연결하는 것  
 물리적인 파일 시스템을 임의의 이렉토리인 마운트 포일트를 이용하여 해당 파일 시스템에 접근 가능하도록 하는 일련의 행위  
 
-   
+[link 1](https://boying-blog.tistory.com/31)
+** bind mount는 뭔데?  
+container 안쪽에서 생성되던, local host에서 파일이 생성던, 상호 연동 됨  
+
+** docker volume은 뭔데?  
+볼륨을 따로 host에 만들어서 저장해놓음.  
+```docker volume ls -a``` 로 확인해보면 볼륨들 엄청 많이 나옴. (정리 좀 하자 ... )  
+container 안쪽에서 생성되면 local host에도 파일 추가 됨. local host에서 생성한 파일이 container로 가지는 않는대.  
+volumne은 docker 영역 안에서 관리된다.  
+
+** docker 영역은 또 뭔데?  
+
+
+
 <br/>
 <br/>
 
