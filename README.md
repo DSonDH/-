@@ -63,7 +63,7 @@ ADD는 local file또는 디렉토리 대신 URL사용 가능
 디스크 공간과 디렉토리를 연결하는 것  
 물리적인 파일 시스템을 임의의 이렉토리인 마운트 포일트를 이용하여 해당 파일 시스템에 접근 가능하도록 하는 일련의 행위  
 
-[link 1](https://boying-blog.tistory.com/31)
+[link 1](https://boying-blog.tistory.com/31)  
 ** bind mount는 뭔데?  
 container 안쪽에서 생성되던, local host에서 파일이 생성던, 상호 연동 됨  
 
@@ -73,10 +73,36 @@ container 안쪽에서 생성되던, local host에서 파일이 생성던, 상�
 container 안쪽에서 생성되면 local host에도 파일 추가 됨. local host에서 생성한 파일이 container로 가지는 않는대.  
 volumne은 docker 영역 안에서 관리된다.  
 
+** volume, bindmount는 .dockerignore에 안걸리는 듯 함. 설정할 수 있는 지 조사 필요  
+
 ** docker 영역은 또 뭔데?  
+  
+  
+* NIA 요청 도커 컨테이너 생성 (dockerfile based)  
+```  
+docker build -t ripdet . 
 
+(
+docker run \
+-it \
+--name ripdet \
+--shm-size=30gb \
+-w /home/sdh/mmdetection/ \
+-v $PWD:/home/sdh/mmdetection/ \
+ripdet
+)
 
+conda activate ./venv
+apt-get update
+apt-get -y install libgl1-mesa-glx
+# pip install packaging
+# pip install python-dateutil
+# pip install pyparsing
 
+python ./NIA_workdir_100p/test_NIA.py
+```  
+  
+  
 <br/>
 <br/>
 
@@ -157,6 +183,7 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
 
 ```
 docker pull continuumio/miniconda3 
+
 (
 docker run \
 -it \
@@ -187,5 +214,3 @@ exit
 (docker에서 생성된 파일은 host에서 root으로 잡히는데, dockerfile에서 user를 새로 만드는 방법이나 docker container 내부에서 chown 자신uid 파일명을 통해 변경할 수 있다고 함)  
 sudo권한 안쓰고 해결하는 방법 : ???  
 
-
-  
