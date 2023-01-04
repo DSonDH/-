@@ -71,7 +71,7 @@ container 안쪽에서 생성되던, local host에서 파일이 생성던, 상�
 볼륨을 따로 host에 만들어서 저장해놓음.  
 ```docker volume ls -a``` 로 확인해보면 볼륨들 엄청 많이 나옴. (정리 좀 하자 ... )  
 container 안쪽에서 생성되면 local host에도 파일 추가 됨. local host에서 생성한 파일이 container로 가지는 않는대.  
-volumne은 docker 영역 안에서 관리된다.  
+volume은 docker 영역 안에서 관리된다.  
 
 ![image](https://user-images.githubusercontent.com/15919242/210486244-ec36a49a-d247-4741-8187-fcd1417d91bf.png)
 
@@ -87,11 +87,12 @@ docker build -t ripdet .
 
 (
 docker run \
+--gpus device=0 \
 -it \
 --name ripdet \
 --shm-size=30gb \
--w /home/sdh/mmdetection/ \
--v $PWD:/home/sdh/mmdetection/ \
+-w /home/sdh/mmdetection_nia/ \
+-v $PWD:/home/sdh/mmdetection_nia/ \
 ripdet
 )
 
