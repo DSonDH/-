@@ -73,6 +73,9 @@ container 안쪽에서 생성되던, local host에서 파일이 생성던, 상�
 container 안쪽에서 생성되면 local host에도 파일 추가 됨. local host에서 생성한 파일이 container로 가지는 않는대.  
 volumne은 docker 영역 안에서 관리된다.  
 
+![image](https://user-images.githubusercontent.com/15919242/210486244-ec36a49a-d247-4741-8187-fcd1417d91bf.png)
+
+
 ** volume, bindmount는 .dockerignore에 안걸리는 듯 함. 설정할 수 있는 지 조사 필요  
 
 ** docker 영역은 또 뭔데?  
@@ -126,21 +129,24 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
 
 !주의  
 ```docker
-처음에 도커이미지를 아래와 같이 만듦
-FROM	ubuntu:18.04
-RUN		apt-get update
-RUN		apt-get install -y curl nginx
+# 처음에 도커이미지를 아래와 같이 만듦
+FROM ubuntu:18.04
+RUN apt-get update
+RUN apt-get install -y curl
 
-나중에 nginx 추가로 받도록 수정함
-FROM	ubuntu:18.04
-RUN		apt-get update
-RUN		apt-get install -y curl nginx
+# 나중에 nginx 추가로 받도록 수정함
+FROM ubuntu:18.04
+RUN apt-get update
+RUN apt-get install -y curl nginx
 
 # dockernginx를 받으려면 새 버전의 apt-get이 필요할 수 있는데
-# docker cache에 old-version의 RUN apt-get update를 수행하는 레이어 가 수행되서 새버전 못받을 수도 있음
-RUN apt-get update && apt-get install -y  # 이렇게 하면 최신 버전 확실히 받을 수 있다네 (?)
-또는 nginx=1.3.2 로 version pinning (버전 명시하는 것)을 쓸 수도 있음
-또 다른 방법은 cache 위치를 삭제해서 레이어 처음부터 생성하도록 + 이미지 크기 줄이기 
+# docker cache에 old-version의 RUN apt-get update를 수행하는 
+# 레이어가 수행되서 새버전 못받을 수도 있음
+
+RUN apt-get update && apt-get install -y  
+# 이렇게 하면 최신 버전 확실히 받을 수 있다네 (?)
+# 또는 nginx=1.3.2 로 version pinning (버전 명시하는 것)을 쓸 수도 있음
+# 또 다른 방법은 cache 위치를 삭제해서 레이어 처음부터 생성하도록 + 이미지 크기 줄이기 
 ```  
 
 
