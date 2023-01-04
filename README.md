@@ -111,17 +111,44 @@ docker image : container를 만드는데 사용되는 read-only 템플릿
 컨테이서 실행에 필요한 파일과 설정값 등을 포함하고 있는 Dockerfile을 만든 후 Dockerfile을 빌드하여 이미지를 만듬.  
   
   
-   * docker build  
+* docker build  
  ```docker build --help```  
  ``` docker build -t ripdet .```  
  ``` docker build -t ripdet:0.1 .```  
-docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.
+docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시.  
+! build condext란 docker build 커맨드 입력 시 현재 작업중인 디렉토리를 말한다. -f 옵션으로 다른 위치 지정 가능.
   
   
 * docker image 생성  
 ``` docker image build -t example/echo:latest```  
--t 옵션은 이미지명 지정에 사용
-   
+-t : 이미지명 지정에 사용
+-f : dockerfile 위치 설정 가능
+
+!주의  
+```docker
+처음에 도커이미지를 아래와 같이 만듦
+FROM	ubuntu:18.04
+RUN		apt-get update
+RUN		apt-get install -y curl nginx
+
+나중에 nginx 추가로 받도록 수정함
+FROM	ubuntu:18.04
+RUN		apt-get update
+RUN		apt-get install -y curl nginx
+
+# dockernginx를 받으려면 새 버전의 apt-get이 필요할 수 있는데
+# docker cache에 old-version의 RUN apt-get update를 수행하는 레이어 가 수행되서 새버전 못받을 수도 있음
+RUN apt-get update && apt-get install -y  # 이렇게 하면 최신 버전 확실히 받을 수 있다네 (?)
+또는 nginx=1.3.2 로 version pinning (버전 명시하는 것)을 쓸 수도 있음
+또 다른 방법은 cache 위치를 삭제해서 레이어 처음부터 생성하도록 + 이미지 크기 줄이기 
+```  
+
+
+* docker image 가져다쓰기  
+```docker
+docker image load -i name.tar.gz
+```
+  
 * docker image none 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
   
@@ -158,7 +185,9 @@ docker build 명령의 끝에 있는 .는 현재 디렉터리에서 Dockerfile�
   ```docker run -w /etc python:3.8-alpine pwd```   
   <br/>
   --shm-size=8G (컨테이너 내부 통신 시 공유메모리 조절. default 4mb 밖에 안된다네?)  
-   
+ 
+* 컨테이너 외부에서 컨테이너 안의 명령 실행
+```docker exec <컨테이너 이름> <명령> <매개변수>```
  
 * container 중지  
 ```exit``` 치거나 Ctrl+C 누르기  
