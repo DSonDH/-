@@ -82,7 +82,9 @@ volume은 docker 영역 안에서 관리된다.
  
   
 * NIA 요청 도커 컨테이너 생성 (dockerfile based)  
-```  ripdet
+```  
+# detection model
+tar -xf mmdetection_nia.tar.gz
 docker build -t ripdet . 
 
 (
@@ -99,14 +101,18 @@ ripdet
 conda activate ./venv
 apt-get update
 apt-get -y install libgl1-mesa-glx
-
+pip install packaging
+pip install python-dateutil
+pip install pyparsing
 # mmdet 모듈 인식 안되면 모듈 불러오기 전에
 import sys
 sys.path.append("/home/sdh/mmdetection_nia/")
 위 두줄 추가.
 python ./NIA_workdir_100p/test_NIA.py
 ```  
-```  rippred
+```  
+scinet
+tar -xf scinet_nia.tar.gz
 docker build -t rippred . 
 
 (
