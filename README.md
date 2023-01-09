@@ -14,7 +14,7 @@ Docker어린이의 도커 공부 노트
  ```docker build --tag scinet-tmp .```  # 이미지 이름은 scinet-tmp, 끝에 .은 현재 디렉터리에서 Dockerfile을 찾도록 Docker에 지시  
  5. docker push ~~~  # 서버에 전송
  6. docker pull ~~~  # 서버에서 다운
- 7. docker run -d -it -p ~~~  # 컨테이너 생성되서 돌아감  
+ 7. docker run -it ~~~  # 컨테이너 생성되서 돌아감
  ```docker run scinet-tmp```  
   
   
@@ -79,7 +79,7 @@ volume은 docker 영역 안에서 관리된다.
 ** volume, bindmount는 .dockerignore에 안걸리는 듯 함. 설정할 수 있는 지 조사 필요  
 
 ** docker 영역은 또 뭔데?  
-  
+ 
   
 * NIA 요청 도커 컨테이너 생성 (dockerfile based)  
 ```  ripdet
@@ -277,4 +277,3 @@ exit
 컨테이너에서 생성한 파일owner가 root라서 root 권한으로 파일 제어가 가능하다 : host에서 sudo로 명령하면 되긴 함.  
 (docker에서 생성된 파일은 host에서 root으로 잡히는데, dockerfile에서 user를 새로 만드는 방법이나 docker container 내부에서 chown 자신uid 파일명을 통해 변경할 수 있다고 함)  
 sudo권한 안쓰고 해결하는 방법 : ???  
-
