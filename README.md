@@ -82,7 +82,7 @@ volume은 docker 영역 안에서 관리된다.
   
   
 * NIA 요청 도커 컨테이너 생성 (dockerfile based)  
-```  
+```  ripdet
 docker build -t ripdet . 
 
 (
@@ -99,13 +99,37 @@ ripdet
 conda activate ./venv
 apt-get update
 apt-get -y install libgl1-mesa-glx
-# pip install packaging
-# pip install python-dateutil
-# pip install pyparsing
 
+# mmdet 모듈 인식 안되면 모듈 불러오기 전에
+import sys
+sys.path.append("/home/sdh/mmdetection_nia/")
+위 두줄 추가.
 python ./NIA_workdir_100p/test_NIA.py
 ```  
-  
+```  rippred
+docker build -t rippred . 
+
+(
+docker run \
+--gpus device=0 \
+-it \
+--name rippred \
+--shm-size=30gb \
+-w /home/sdh/scinet_nia/ \
+-v $PWD:/home/sdh/scinet_nia/ \
+rippred
+)
+
+conda activate ./venv
+
+# apt-get update
+# apt-get -y install libgl1-mesa-glx
+# mmdet 모듈 인식 안되면 모듈 불러오기 전에
+# import sys
+# sys.path.append("/home/sdh/mmdetection_nia/")
+#위 두줄 추가.
+python ./run_NIA.py
+```  
   
 <br/>
 <br/>
@@ -212,6 +236,10 @@ docker image load -i name.tar.gz
 
 * docker container 에 접속  
 ```docker attach <container-id>```  
+
+* docker container 물리적 위치  
+/var/lib/docker  
+
 
 <br/>
 
