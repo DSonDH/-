@@ -80,7 +80,8 @@ volume은 docker 영역 안에서 관리된다.
 
 ** docker 영역은 또 뭔데?  
  
-  
+  ??? 궂이 폴더를 -v로 전달하는 거면.. 아예 폴더 자체를 넘겨줘서 실행하는거랑 차이가 뭐지?  
+  다른 process들과 독립된다는거? 그리고 가상환경을 가지게 된다는 것 ? 흠...   
 * NIA 요청 도커 컨테이너 생성 (dockerfile based)  
 ```  
 # detection model
