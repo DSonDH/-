@@ -189,6 +189,13 @@ docker image load -i name.tar.gz
   
 * docker image none 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
+
+* docker image 경로
+일반적으로는  
+/var/lib/docker/overlay2/ 경로이지만,  
+우리 서버에서는  
+/data/var/lib/docker/overlay2/  
+
   
 <br/>
 <br/>
