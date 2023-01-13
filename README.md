@@ -190,6 +190,10 @@ docker image load -i name.tar.gz
 * docker image none 일괄 제거  
 ```docker rm $(docker ps --filter status=exited -q)```  
 
+* docker image 저장
+docker save [옵션] [파일명] <이미지명 또는 이미지ID>
+```docker save -o ./ripdet_docker_image.tar.gz ripdet```
+
 * docker image 경로
 일반적으로는  
 /var/lib/docker/overlay2/ 경로이지만,  
